@@ -13,7 +13,7 @@
     name: "{{azure_db_security_group_name}}"
     rules:
       - name: allow_app_security_group
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 3306
         source_application_security_groups: "{{azure_app_security_group_name}}"
         access: Allow
