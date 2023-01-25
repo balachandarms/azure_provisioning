@@ -7,16 +7,15 @@
     virtual_network: "{{azure_virtual_network_name}}"
   tags: all, db
 
-- name: create Network Security Group that allows connections from app security group
+- name: create Network Security Group that allows connections from app tier
   azure_rm_securitygroup:
     resource_group: "{{azure_resource_group_name}}"
     name: "{{azure_db_security_group_name}}"
     rules:
-      - name: allow_app_security_group
+      - name: allow_connections_from_app_tier
         protocol: Tcp
-        destination_port_range: 3306
-        #source_application_security_groups: "{{azure_app_security_group_name}}"
-        source_address_prefix: "20.30.40.48/30"
+        destination_port_range: "{{azure_db_destination_port_rage}}"
+        source_address_prefix: "{{azure_app_subnet_address}}"
         access: Allow
         priority: 1001
         direction: Inbound

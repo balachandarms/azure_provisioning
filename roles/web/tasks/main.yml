@@ -19,10 +19,10 @@
     resource_group: "{{azure_resource_group_name}}"
     name: "{{azure_web_security_group_name}}"
     rules:
-      - name: HTTPS
+      - name: allow_https_connections_from_limited_ips
         protocol: Tcp
-        destination_port_range: 443
-        source_address_prefix: "20.30.40.48/30"
+        destination_port_range: "{{azure_web_destination_port_rage}}"
+        source_address_prefix: "{{azure_web_source_address_prefix}}"
         access: Allow
         priority: 1001
         direction: Inbound

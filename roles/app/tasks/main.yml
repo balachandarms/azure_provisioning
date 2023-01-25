@@ -7,16 +7,15 @@
     virtual_network: "{{azure_virtual_network_name}}"
   tags: all, app
 
-- name: create Network Security Group that allows connections from web security group
+- name: create Network Security Group that allows connections from web tier
   azure_rm_securitygroup:
     resource_group: "{{azure_resource_group_name}}"
     name: "{{azure_app_security_group_name}}"
     rules:
-      - name: allow_web_security_group
+      - name: allow_connections_from_web_tier
         protocol: Tcp
-        destination_port_range: 8080
-        #source_application_security_groups: "{{azure_web_security_group_name}}"
-        source_address_prefix: "20.30.40.48/30"
+        destination_port_range: "{{azure_app_destination_port_rage}}"
+        source_address_prefix: "{{azure_web_subnet_address}}"
         access: Allow
         priority: 1001
         direction: Inbound
