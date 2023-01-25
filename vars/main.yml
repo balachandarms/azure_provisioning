@@ -1,0 +1,21 @@
+---
+azure_resource_group_name: "demo-rg"
+azure_resource_group_location: "uksouth"
+azure_virtual_network_name: "demo-vnet"
+azure_virtual_network_address: "10.0.0.0/16"
+
+azure_web_subnet_name: "demo-web-snet"
+azure_web_subnet_address: "10.0.1.0/28"
+azure_web_publicip_name: "demo-web-pub-ip"
+azure_web_security_group_name: "demo-web-nsg"
+azure_web_network_interface_card_name: "demo-web-nic"
+
+azure_app_subnet_name: "demo-app-snet"
+azure_app_subnet_address: "10.0.2.0/28"
+azure_app_security_group_name: "demo-app-nsg"
+azure_app_network_interface_card_name: "demo-app-nic"
+
+azure_db_subnet_name: "demo-db-snet"
+azure_db_subnet_address: "10.0.3.0/28"
+azure_db_security_group_name: "demo-db-nsg"
+azure_db_network_interface_card_name: "demo-db-nic"

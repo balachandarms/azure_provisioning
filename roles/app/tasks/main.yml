@@ -1,0 +1,32 @@
+---
+- name: create subnet
+  azure_rm_subnet:
+    resource_group: "{{azure_resource_group_name}}"
+    name: "{{azure_app_subnet_name}}"
+    address_prefix: "{{azure_app_subnet_address}}"
+    virtual_network: "{{azure_app_virtual_network_name}}"
+  tags: all, app
+
+- name: create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: "{{azure_resource_group_name}}"
+    name: "{{azure_app_security_group_name}}"
+    rules:
+      - name: HTTPS
+        protocol: TCP
+        destination_port_range: 8080
+        sourceAddressPrefix: "20.30.40.48/30"
+        access: Allow
+        priority: 1001
+        direction: Inbound
+  tags: all, app
+
+- name: create virtual network interface card
+  azure_rm_networkinterface:
+    resource_group: "{{azure_resource_group_name}}"
+    name: "{{azure_app_network_interface_card_name}}"
+    virtual_network: "{{azure_virtual_network_name}}"
+    subnet: "{{azure_app_subnet_name}}"
+    public_ip_name: "{{azure_app_publicip_name}}"
+    security_group: "{{azure_security_group_name}}"
+  tags: all, app
