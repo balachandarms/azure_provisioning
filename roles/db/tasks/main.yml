@@ -27,6 +27,5 @@
     name: "{{azure_db_network_interface_card_name}}"
     virtual_network: "{{azure_virtual_network_name}}"
     subnet: "{{azure_db_subnet_name}}"
-    public_ip_name: "{{azure_db_publicip_name}}"
-    security_group: "{{azure_security_group_name}}"
+    security_group: "{{azure_db_security_group_name}}"
   tags: all, db

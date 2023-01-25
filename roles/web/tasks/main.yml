@@ -35,5 +35,5 @@
     virtual_network: "{{azure_virtual_network_name}}"
     subnet: "{{azure_web_subnet_name}}"
     public_ip_name: "{{azure_web_publicip_name}}"
-    security_group: "{{azure_security_group_name}}"
+    security_group: "{{azure_web_security_group_name}}"
   tags: all, web
