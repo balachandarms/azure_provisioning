@@ -4,7 +4,7 @@
     resource_group: "{{azure_resource_group_name}}"
     name: "{{azure_app_subnet_name}}"
     address_prefix: "{{azure_app_subnet_address}}"
-    virtual_network: "{{azure_app_virtual_network_name}}"
+    virtual_network: "{{azure_virtual_network_name}}"
   tags: all, app
 
 - name: create Network Security Group that allows SSH

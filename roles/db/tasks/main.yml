@@ -4,7 +4,7 @@
     resource_group: "{{azure_resource_group_name}}"
     name: "{{azure_db_subnet_name}}"
     address_prefix: "{{azure_db_subnet_address}}"
-    virtual_network: "{{azure_db_virtual_network_name}}"
+    virtual_network: "{{azure_virtual_network_name}}"
   tags: all, db
 
 - name: create Network Security Group that allows SSH
