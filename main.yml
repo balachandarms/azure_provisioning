@@ -1,0 +1,10 @@
+---
+- name: Azure 3 tier architecutre
+  hosts: localhost
+  connection: local
+  roles:
+  - common
+  - web
+  - app
+  - db
+ 
