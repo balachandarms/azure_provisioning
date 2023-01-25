@@ -14,7 +14,7 @@
     name: "{{azure_web_publicip_name}}"
   tags: all, web
 
-- name: create Network Security Group that allows SSH
+- name: create Network Security Group that allows HTTPS connection from fixed IP's
   azure_rm_securitygroup:
     resource_group: "{{azure_resource_group_name}}"
     name: "{{azure_web_security_group_name}}"
